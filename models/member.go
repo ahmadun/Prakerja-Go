@@ -13,8 +13,9 @@ type Member struct {
 	JoinDate   time.Time `gorm:"not null" json:"join_date"`
 	Active     bool      `gorm:"not null;default:true" json:"active"`
 	EntryBy    string    `gorm:"not null" json:"entry_by"`
-	EntryDate  time.Time `gorm:"not null;default:CURRENT_TIMESTAMP" json:"entry_date"`
+	EntryDate  time.Time `gorm:"not null" json:"entry_date"`
 	UpdateBy   string    `json:"update_by"`
 	UpdateDate time.Time `json:"update_date"`
 	Savings    []Saving  `gorm:"foreignKey:MemberID;references:Id"`
+	Loans      []Loan    `gorm:"foreignKey:MemberID;references:Id"`
 }

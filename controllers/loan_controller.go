@@ -9,11 +9,11 @@ import (
 	"github.com/labstack/echo/v4"
 )
 
-func CreateSavingController(c echo.Context) error {
-	var req models.Saving
+func CreateLoanController(c echo.Context) error {
+	var req models.Loan
 	c.Bind(&req)
 
-	err := repositories.AddSaving(&req)
+	err := repositories.AddLoan(&req)
 
 	if err != nil {
 		return c.JSON(http.StatusInternalServerError, models.BaseResponse{
@@ -29,10 +29,10 @@ func CreateSavingController(c echo.Context) error {
 	})
 }
 
-func GetSavingsController(c echo.Context) error {
-	var res []models.Saving
+func GetLoansController(c echo.Context) error {
+	var res []models.Loan
 
-	err := repositories.GetSavings(&res)
+	err := repositories.GetLoans(&res)
 	fmt.Println(res)
 
 	if err != nil {
@@ -49,10 +49,10 @@ func GetSavingsController(c echo.Context) error {
 	})
 }
 
-func GetSavingByController(c echo.Context) error {
-	var res []models.Saving
+func GetLoanByController(c echo.Context) error {
+	var res []models.Loan
 	id := c.Param("id")
-	err := repositories.GetSavingBy(&res, id)
+	err := repositories.GetLoanBy(&res, id)
 
 	if err != nil {
 		return c.JSON(http.StatusInternalServerError, models.BaseResponse{
@@ -68,10 +68,10 @@ func GetSavingByController(c echo.Context) error {
 	})
 }
 
-func DeleteSavingByController(c echo.Context) error {
+func DeleteLoanByController(c echo.Context) error {
 	id := c.QueryParam("id")
 	period := c.QueryParam("period")
-	res, err := repositories.DelSaving(id, period)
+	res, err := repositories.DelLoan(id, period)
 
 	if err != nil {
 		return c.JSON(http.StatusInternalServerError, models.BaseResponse{

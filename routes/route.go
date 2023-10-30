@@ -22,4 +22,13 @@ func InitRoute(e *echo.Echo) {
 
 	eAuth.POST("/saving", controllers.CreateSavingController)
 	eAuth.GET("/savings", controllers.GetSavingsController)
+	eAuth.GET("/saving/:id", controllers.GetSavingByController)
+	eAuth.DELETE("/saving", controllers.DeleteSavingByController)
+
+	eAuth.POST("/loan", controllers.CreateLoanController)
+	eAuth.GET("/loans", controllers.GetLoansController)
+	eAuth.GET("/loan/:id", controllers.GetLoanByController)
+	eAuth.DELETE("/loan", controllers.DeleteLoanByController)
+
+	eAuth.GET("/loanpayment/:id", controllers.GetLoanPaymentByController)
 }
