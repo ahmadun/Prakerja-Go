@@ -6,7 +6,7 @@ import (
 
 type Member struct {
 	Id         string    `gorm:"primaryKey" json:"id" form:"id"`
-	Name       string    `gorm:"not null" json:"title"`
+	Name       string    `gorm:"not null" json:"name"`
 	BirthDay   time.Time `gorm:"not null" json:"birth_day"`
 	PlaceBirth string    `gorm:"not null" json:"place_birth"`
 	Gender     string    `gorm:"not null" json:"gender"`
